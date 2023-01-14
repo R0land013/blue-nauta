@@ -17,6 +17,7 @@ class MainView(QFrame):
     
     def __setup_gui_connections(self):
         self.init_session_button.clicked.connect(self.__presenter.open_session)
+        self.show_accounts_button.clicked.connect(self.__presenter.open_account_list_presenter)
     
     def get_username(self) -> str:
         return self.user_line_edit.text().strip()

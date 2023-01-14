@@ -3,6 +3,7 @@ from easy_mvp.intent import Intent
 from view.main import MainView
 from presenter.opened_session import OpenedSessionPresenter
 from nautapy.nauta_api import NautaClient
+from presenter.account_list import AccountListPresenter
 
 
 class MainPresenter(AbstractPresenter):
@@ -27,4 +28,8 @@ class MainPresenter(AbstractPresenter):
         data = {OpenedSessionPresenter.NAUTA_CLIENT_DATA: nauta_client}
         intent.set_data(data)
         
+        self._open_other_presenter(intent)
+
+    def open_account_list_presenter(self):
+        intent = Intent(AccountListPresenter)
         self._open_other_presenter(intent)
