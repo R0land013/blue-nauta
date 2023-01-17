@@ -23,8 +23,6 @@ class AccountFormPresenter(AbstractPresenter):
             username=view.get_username(),
             password=view.get_password())
         
-        print(credential_manager.get_usernames())
-
         self._close_this_presenter_with_result(
             result_data=None,
             result=self.NEW_ACCOUNT_RESULT)

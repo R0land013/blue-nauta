@@ -11,13 +11,14 @@ class CredentialManager:
         create_database()
         self.__credential_repo = CredentialRepository()
 
-    def get_usernames(self) -> List[UserCredential]:
+    def get_credentials(self) -> List[UserCredential]:
         encrypted_credentials = self.__credential_repo.get_all_credentials()
 
         credentials_to_return = []
         for an_encrypted_credential in encrypted_credentials:
             decrypted_credential = UserCredential()
 
+            decrypted_credential.id = an_encrypted_credential.id
             decrypted_credential.username = self.__decrypt(
                 an_encrypted_credential.username, an_encrypted_credential.username_key)
 
