@@ -53,3 +53,9 @@ class CredentialManager:
         decoded_key = encoded_key.decode()
 
         return (encrypted_string, decoded_key)
+    
+    def set_account_as_default(self, account: UserCredential):
+        self.__credential_repo.set_user_credential_as_default(account)
+    
+    def clear_default_credentials(self):
+        self.__credential_repo.set_not_default_all_credentials()

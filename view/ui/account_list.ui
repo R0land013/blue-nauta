@@ -119,13 +119,20 @@
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
        <widget class="QCheckBox" name="use_default_account_check_box">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Usar cuenta por defecto</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="default_account_combo_box"/>
+       <widget class="QComboBox" name="default_account_combo_box">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
