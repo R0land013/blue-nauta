@@ -27,7 +27,7 @@ class CredentialManager:
 
             decrypted_credential.is_default = an_encrypted_credential.is_default
             credentials_to_return.append(decrypted_credential)
-        
+
         return credentials_to_return
 
     def __decrypt(self, encrypted_string: str, encryption_key: str):
@@ -53,9 +53,24 @@ class CredentialManager:
         decoded_key = encoded_key.decode()
 
         return (encrypted_string, decoded_key)
-    
+
     def set_account_as_default(self, account: UserCredential):
         self.__credential_repo.set_user_credential_as_default(account)
-    
+
     def clear_default_credentials(self):
         self.__credential_repo.set_not_default_all_credentials()
+
+    def get_default_credential(self) -> UserCredential:
+        encrypted_account = self.__credential_repo.get_default_credential()
+        
+        if encrypted_account:
+            default_account = UserCredential()
+            default_account.id = encrypted_account.id
+            default_account.username = self.__decrypt(
+                encrypted_account.username, encrypted_account.username_key)
+            default_account.password = self.__decrypt(
+                encrypted_account.password, encrypted_account.password_key)
+            return default_account
+        
+        return None
+

@@ -22,5 +22,11 @@ class MainView(QFrame):
     def get_username(self) -> str:
         return self.user_line_edit.text().strip()
     
+    def set_username(self, username: str):
+        self.user_line_edit.setText(username)
+    
     def get_password(self) -> str:
         return self.password_line_edit.text().strip()
+    
+    def set_password(self, password: str):
+        self.password_line_edit.setText(password)

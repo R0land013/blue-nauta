@@ -47,3 +47,12 @@ class CredentialRepository:
                 update(UserCredential)
                 .values(is_default=False))
             session.commit()
+    
+    def get_default_credential(self) -> UserCredential:
+        with self.__create_session() as session:
+            
+            default_credential = session.scalar(
+                select(UserCredential)
+                .where(UserCredential.is_default == True))
+            
+            return default_credential
