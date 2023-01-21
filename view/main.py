@@ -16,7 +16,7 @@ class MainView(QFrame):
         self.__setup_gui_connections()
     
     def __setup_gui_connections(self):
-        self.init_session_button.clicked.connect(self.__presenter.open_session)
+        self.init_session_button.clicked.connect(self.__presenter.try_to_open_session)
         self.show_accounts_button.clicked.connect(self.__presenter.open_account_list_presenter)
     
     def get_username(self) -> str:
@@ -30,3 +30,9 @@ class MainView(QFrame):
     
     def set_password(self, password: str):
         self.password_line_edit.setText(password)
+    
+    def disable_all_gui(self, disabled: bool):
+        self.main_container.setDisabled(disabled)
+    
+    def set_status_text(self, status: str):
+        self.status_label.setText(status)
