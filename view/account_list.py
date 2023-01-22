@@ -22,7 +22,7 @@ class AccountListView(QFrame):
             self.__presenter.return_to_main_view)
 
         self.new_account_button.clicked.connect(
-            self.__presenter.open_account_form_presenter)
+            self.__presenter.open_account_form_presenter_for_adding_account)
 
         self.use_default_account_check_box.stateChanged.connect(
             self.__notify_presenter_on_use_default_account_changed)

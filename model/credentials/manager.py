@@ -62,7 +62,7 @@ class CredentialManager:
 
     def get_default_credential(self) -> UserCredential:
         encrypted_account = self.__credential_repo.get_default_credential()
-        
+
         if encrypted_account:
             default_account = UserCredential()
             default_account.id = encrypted_account.id
@@ -71,6 +71,18 @@ class CredentialManager:
             default_account.password = self.__decrypt(
                 encrypted_account.password, encrypted_account.password_key)
             return default_account
-        
+
         return None
 
+    def update_credential(self, credential: UserCredential):
+        encrypted_username, username_key = self.__encrypt(credential.username)
+        encrypted_password, password_key = self.__encrypt(credential.password)
+
+        updated_credential = UserCredential(
+            id=credential.id,
+            username=encrypted_username,
+            username_key=username_key,
+            password=encrypted_password,
+            password_key=password_key)
+
+        self.__credential_repo.update_credential(updated_credential)

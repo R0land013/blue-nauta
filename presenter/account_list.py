@@ -33,8 +33,9 @@ class AccountListPresenter(AbstractPresenter):
     def get_default_window_title(self) -> str:
         return 'Blue Nauta - Lista de cuentas'
 
-    def open_account_form_presenter(self):
+    def open_account_form_presenter_for_adding_account(self):
         intent = Intent(AccountFormPresenter)
+        intent.set_action(AccountFormPresenter.NEW_ACCOUNT_ACTION)
         intent.use_new_window(True)
         intent.use_modal(True)
 
@@ -50,11 +51,24 @@ class AccountListPresenter(AbstractPresenter):
         self.__credentials = sorted(
             self.__credentials, key=lambda account: account.username)
 
-        view = self.get_view()
-        view.clear_account_list()
+        self.get_view().clear_account_list()
         for a_credential in self.__credentials:
-            def on_edit(): return print(a_credential.username)
-            view.add_account(a_credential.username, on_edit)
+            self.__add_an_account(a_credential)
+
+    def __add_an_account(self, account: UserCredential):
+        def on_edit(): return self.__open_account_form_presenter_for_editing(account)
+        self.get_view().add_account(account.username, on_edit)
+
+    def __open_account_form_presenter_for_editing(self, account: UserCredential):
+        intent = Intent(AccountFormPresenter)
+        intent.set_action(AccountFormPresenter.EDIT_ACCOUNT_ACTION)
+        data = {AccountFormPresenter.ACCOUNT_TO_EDIT_DATA: account}
+        intent.set_data(data)
+
+        intent.use_new_window(True)
+        intent.use_modal(True)
+
+        self._open_other_presenter(intent)
 
     def __set_accounts_for_selecting_default(self):
         usernames_and_ids = map(lambda account: (
@@ -72,7 +86,9 @@ class AccountListPresenter(AbstractPresenter):
 
     def on_view_discovered_with_result(self, action: str, result_data: dict, result: str):
 
-        if result == AccountFormPresenter.NEW_ACCOUNT_RESULT:
+        if (result == AccountFormPresenter.NEW_ACCOUNT_RESULT or
+                result == AccountFormPresenter.EDITED_ACCOUNT_RESULT):
+
             self.on_view_shown()
 
     def handle_use_default_account(self, use_default_account: bool, account_id: int = -1):

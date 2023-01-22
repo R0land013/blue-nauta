@@ -21,5 +21,11 @@ class AccountFormView(QFrame):
     def get_username(self):
         return self.username_line_edit.text().strip()
     
+    def set_username(self, username: str):
+        self.username_line_edit.setText(username)
+
     def get_password(self):
         return self.password_line_edit.text().strip()
+    
+    def set_password(self, password: str):
+        self.password_line_edit.setText(password)

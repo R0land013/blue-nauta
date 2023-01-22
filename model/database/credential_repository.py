@@ -56,3 +56,17 @@ class CredentialRepository:
                 .where(UserCredential.is_default == True))
             
             return default_credential
+
+    def update_credential(self, credential: UserCredential):
+        with self.__create_session() as session:
+
+            session.execute(
+                update(UserCredential)
+                .where(UserCredential.id == credential.id)
+                .values(
+                    username=credential.username,
+                    username_key=credential.username_key,
+                    password=credential.password,
+                    password_key=credential.password_key)
+            )
+            session.commit()
