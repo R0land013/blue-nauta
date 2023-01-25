@@ -86,3 +86,6 @@ class CredentialManager:
             password_key=password_key)
 
         self.__credential_repo.update_credential(updated_credential)
+    
+    def delete_credential(self, credential_id: int):
+        self.__credential_repo.delete_credential(credential_id)

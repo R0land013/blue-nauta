@@ -69,7 +69,7 @@ class AccountListView(QFrame):
 
         self.account_list_frame.setLayout(QVBoxLayout(self.account_list_frame))
 
-    def add_account(self, username: str, on_edit_pressed: Callable):
+    def add_account(self, username: str, on_edit_pressed: Callable, on_delete_pressed: Callable):
         account_frame = QFrame(parent=self.account_list_frame)
 
         layout = QHBoxLayout(account_frame)
@@ -77,6 +77,9 @@ class AccountListView(QFrame):
         edit_button = QPushButton('Editar')
         edit_button.clicked.connect(on_edit_pressed)
         layout.addWidget(edit_button)
+        delete_button = QPushButton('Eliminar')
+        delete_button.clicked.connect(on_delete_pressed)
+        layout.addWidget(delete_button)
         account_frame.setLayout(layout)
 
         list_frame_layout = self.account_list_frame.layout()

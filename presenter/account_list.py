@@ -57,7 +57,8 @@ class AccountListPresenter(AbstractPresenter):
 
     def __add_an_account(self, account: UserCredential):
         def on_edit(): return self.__open_account_form_presenter_for_editing(account)
-        self.get_view().add_account(account.username, on_edit)
+        on_delete = lambda: self.__delete_account(account)
+        self.get_view().add_account(account.username, on_edit, on_delete)
 
     def __open_account_form_presenter_for_editing(self, account: UserCredential):
         intent = Intent(AccountFormPresenter)
@@ -69,6 +70,10 @@ class AccountListPresenter(AbstractPresenter):
         intent.use_modal(True)
 
         self._open_other_presenter(intent)
+
+    def __delete_account(self, account: UserCredential):
+        self.__credential_manager.delete_credential(account.id)
+        self.on_view_shown()
 
     def __set_accounts_for_selecting_default(self):
         usernames_and_ids = map(lambda account: (

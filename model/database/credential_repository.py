@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, select, update
+from sqlalchemy import create_engine, select, update, delete
 from sqlalchemy.pool import NullPool
 from ..entity.entity import UserCredential
 from ..database.util import DB_URL
@@ -68,5 +68,14 @@ class CredentialRepository:
                     username_key=credential.username_key,
                     password=credential.password,
                     password_key=credential.password_key)
+            )
+            session.commit()
+    
+    def delete_credential(self, credential_id: int):
+        with self.__create_session() as session:
+
+            session.execute(
+                delete(UserCredential)
+                .where(UserCredential.id == credential_id)
             )
             session.commit()
