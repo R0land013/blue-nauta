@@ -16,10 +16,12 @@ class OpenedSessionPresenter(AbstractPresenter):
     
     def on_view_shown(self):
         self.get_view().set_available_time(self.__nauta_client.remaining_time)
+        self.get_view().start_time_counter()
     
     def get_default_window_title(self) -> str:
         return 'Sesión iniciada'
     
     def close_session(self):
         self.__nauta_client.logout()
+        self.get_view().stop_time_counter()
         self._close_this_presenter()
