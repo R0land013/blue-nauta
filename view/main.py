@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QFrame
+from PyQt5.QtWidgets import QFrame, QMessageBox
 from PyQt5.uic import loadUi
 
 
@@ -36,3 +36,6 @@ class MainView(QFrame):
     
     def set_status_text(self, status: str):
         self.status_label.setText(status)
+
+    def show_dialog_error_message(self, message: str):
+        QMessageBox.critical(self.window(), 'Error', message)

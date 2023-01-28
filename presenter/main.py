@@ -37,6 +37,7 @@ class MainPresenter(AbstractPresenter):
         self.__open_session_thread.when_started.connect(
             lambda: self.get_view().set_status_text('Conectando...'))
         
+        self.__open_session_thread.error_found.connect(self.__handle_error_while_login)
         
         self.__open_session_thread.when_finished.connect(
             lambda: self.get_view().disable_all_gui(False)
@@ -51,11 +52,17 @@ class MainPresenter(AbstractPresenter):
         
 
     def __open_session_in_another_thread(self, thread: PresenterThreadWorker):
-        self.__nauta_client = NautaClient(
-            user=self.__username, password=self.__password)
-        self.__nauta_client.login()
+        try:
+            self.__nauta_client = NautaClient(
+                user=self.__username, password=self.__password)
+            self.__nauta_client.login()
+            thread.finished_without_error.emit()
+        
+        except Exception as e:
+            thread.error_found.emit(e)
 
-        thread.finished_without_error.emit()
+    def __handle_error_while_login(self, error: Exception):
+        self.get_view().show_dialog_error_message(str(error))
 
     def open_account_list_presenter(self):
         intent = Intent(AccountListPresenter)
