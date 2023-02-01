@@ -6,6 +6,8 @@ from model.credentials.manager import CredentialManager
 from model.entity.entity import UserCredential
 from typing import List
 
+from view.utils import show_action_confirmation_dialog
+
 
 class AccountListPresenter(AbstractPresenter):
 
@@ -72,8 +74,11 @@ class AccountListPresenter(AbstractPresenter):
         self._open_other_presenter(intent)
 
     def __delete_account(self, account: UserCredential):
-        self.__credential_manager.delete_credential(account.id)
-        self.on_view_shown()
+            # confirmation dialog
+            result = show_action_confirmation_dialog(self.get_view(), "Eliminar cuenta", f"¿Realmente desea eliminar la cuenta '{account.username}'?")
+            if result:
+                self.__credential_manager.delete_credential(account.id)
+                self.on_view_shown()
 
     def __set_accounts_for_selecting_default(self):
         usernames_and_ids = map(lambda account: (
