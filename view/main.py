@@ -1,4 +1,5 @@
-from PyQt5.QtWidgets import QFrame, QMessageBox
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QFrame, QMessageBox, QLineEdit
 from PyQt5.uic import loadUi
 
 
@@ -13,8 +14,26 @@ class MainView(QFrame):
 
     def __setup_gui(self):
         loadUi('./view/ui/main.ui', self)
+        # set windows icon (it doesn't work)
+        self.setWindowIcon(QIcon(":/logo/assets/bluenauta.png"))
+        # toggle password visibility button on line edit
+        self.visibleIcon = QIcon(":/icons/icons/eye_on_32x32.png")
+        self.hiddenIcon = QIcon(":/icons/icons/eye_off_32x32.png")
+        self.togglepasswordAction = self.password_line_edit.addAction(self.visibleIcon,
+                                                                  QLineEdit.ActionPosition.TrailingPosition)
+        self.togglepasswordAction.triggered.connect(self.__on_toggle_password_Action)
+        #
         self.__setup_gui_connections()
-    
+
+    # a function to toggle password visibility
+    def __on_toggle_password_Action(self):
+        if self.password_line_edit.echoMode() == QLineEdit.Password:
+            self.password_line_edit.setEchoMode(QLineEdit.Normal)
+            self.togglepasswordAction.setIcon(self.hiddenIcon)
+        else:
+            self.password_line_edit.setEchoMode(QLineEdit.Password)
+            self.togglepasswordAction.setIcon(self.visibleIcon)
+
     def __setup_gui_connections(self):
         self.init_session_button.clicked.connect(self.__presenter.try_to_open_session)
         self.show_accounts_button.clicked.connect(self.__presenter.open_account_list_presenter)
