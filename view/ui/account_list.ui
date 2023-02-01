@@ -6,28 +6,102 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>539</width>
-    <height>397</height>
+    <width>553</width>
+    <height>193</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Frame</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <widget class="QLabel" name="label">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="text">
-      <string>Cuentas de Navegación</string>
-     </property>
-    </widget>
-   </item>
-   <item>
+  <property name="styleSheet">
+   <string notr="true">QComboBox
+{
+	color: rgb(0, 0, 0);
+	font: 12pt &quot;Calibri&quot;;
+    background-color: rgb(161, 161, 161);
+    border-radius:12px;
+    border:none;
+    padding-left: 10px;
+    padding-right: 10px;
+    selection-background-color: rgb(62, 62, 62);
+    min-width: 75px;
+	min-height: 30px;
+}
+
+QComboBox:drop-down {
+	color: white;
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 12px;
+    border:none;
+    border-radius:10px;
+    background-color: transparent;
+}
+
+QComboBox:down-arrow {
+   	image: url(:/assets/assets/arrow_down2x.png);
+    height: 12px;
+    width: 12px;
+    padding-right: 10px;
+}
+
+QComboBox:on:hover:focus {
+   
+	image: url(:/Resources/resources/arrow_down_disabled.png);
+}
+
+QComboBox QAbstractItemView
+{
+	color: white;
+    background-color: #232629;
+    border-radius: 10px;
+    border: none;
+    selection-background-color: #18465d;
+}
+
+QPushButton{
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;	
+	background-color:rgb(0, 166, 255);
+	border-radius:10px;
+	padding: 5px;
+}
+QPushButton:hover{
+	
+	background-color: rgb(0, 123, 255);
+}
+
+QLabel{
+	color: rgba(0, 0, 0, 150);
+	font: 12pt &quot;Segoe UI&quot;;	
+}
+QCheckBox, QRadioButton{
+	font: 10pt &quot;Segoe UI&quot;;
+	color:rgba(0, 0, 0, 150);
+}
+QCheckBox::indicator, QRadioButton::indicator {
+	border: 1px solid rgb(100, 100, 100);
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: rgb(135, 135, 135);
+}
+QCheckBox::indicator:checked, QRadioButton::indicator:checked {
+	border: 1px solid rgb(0, 128, 212);
+	background-color: rgb(0, 221, 255)
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <item row="1" column="0">
     <widget class="QFrame" name="account_list_frame">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -102,8 +176,11 @@
      </layout>
     </widget>
    </item>
-   <item>
+   <item row="2" column="0">
     <widget class="QFrame" name="frame_3">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
        <horstretch>0</horstretch>
@@ -132,18 +209,53 @@
         <property name="enabled">
          <bool>false</bool>
         </property>
+        <item>
+         <property name="text">
+          <string>asd</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>asd2w2</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>dad2</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>af3wg</string>
+         </property>
+        </item>
        </widget>
       </item>
      </layout>
     </widget>
    </item>
-   <item>
-    <widget class="QFrame" name="frame">
+   <item row="0" column="0">
+    <widget class="QFrame" name="frame_4">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget #frame_4{
+	background-color: rgb(68, 68, 68);/*rgb(77, 77, 127);*/
+}
+
+QToolButton{
+padding: 5px;
+background-color: transparent;
+border-radius: 18px;
+}
+
+QToolButton:hover{
+background-color: rgba(255, 255, 255, 100);
+}</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -151,9 +263,32 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <spacer name="horizontalSpacer">
+     <layout class="QGridLayout" name="gridLayout_2">
+      <property name="leftMargin">
+       <number>6</number>
+      </property>
+      <property name="topMargin">
+       <number>6</number>
+      </property>
+      <property name="rightMargin">
+       <number>6</number>
+      </property>
+      <property name="bottomMargin">
+       <number>6</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="section_name">
+        <property name="styleSheet">
+         <string notr="true">font: 18pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Cuentas de Navegación</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <spacer name="horizontalSpacer_3">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -165,17 +300,49 @@
         </property>
        </spacer>
       </item>
-      <item>
-       <widget class="QPushButton" name="new_account_button">
+      <item row="0" column="2">
+       <widget class="QToolButton" name="new_account_button">
+        <property name="toolTip">
+         <string>Nueva cuenta</string>
+        </property>
         <property name="text">
-         <string>Nueva Cuenta</string>
+         <string>Guardar</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/icons/assets/add.png</normaloff>:/icons/assets/add.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
-      <item>
-       <widget class="QPushButton" name="go_back_button">
-        <property name="text">
+      <item row="0" column="3">
+       <widget class="QToolButton" name="go_back_button">
+        <property name="toolTip">
          <string>Regresar</string>
+        </property>
+        <property name="text">
+         <string>Cancelar</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/icons/assets/back.png</normaloff>:/icons/assets/back.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>28</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="autoRaise">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -184,6 +351,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

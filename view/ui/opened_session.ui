@@ -13,6 +13,55 @@
   <property name="windowTitle">
    <string>Frame</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QFrame #Frame{
+	
+}
+
+QFrame #frame{
+	border-radius:20px;
+	background-color: rgba(0, 0, 0, 80);
+	padding:10px;
+}
+QLCNumber{
+	padding:5px;
+	color: black;
+	font: 12pt &quot;Segoe UI&quot;;	
+	background-color:white;
+	border-radius:15px;
+	
+}
+QLabel{
+	color: white;
+	font: 14pt &quot;Segoe UI&quot;;	
+}
+QCheckBox, QRadioButton{
+	font: 10pt &quot;Segoe UI&quot;;
+	color:white;
+}
+QCheckBox::indicator, QRadioButton::indicator {
+	border: 1px solid rgb(100, 100, 100);
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: rgb(135, 135, 135);
+}
+QCheckBox::indicator:checked, QRadioButton::indicator:checked {
+	border: 1px solid rgb(0, 128, 212);
+	background-color: rgb(0, 221, 255)
+}
+QPushButton{
+	color: white;
+	font: bold 12pt &quot;Segoe UI&quot;;	
+	background-color:rgb(0, 166, 255);
+	border-radius:15px;
+	padding: 10px;
+}
+QPushButton:hover{
+	
+	background-color: rgb(0, 123, 255);
+}</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QFrame" name="frame">
