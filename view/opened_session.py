@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QFrame
 from PyQt5.uic import loadUi
 from PyQt5.QtCore import QTimer
 from datetime import timedelta
+from PyQt5.QtWidgets import QMessageBox
 
 
 class OpenedSessionView(QFrame):
@@ -34,3 +35,9 @@ class OpenedSessionView(QFrame):
     
     def stop_time_counter(self):
         self.__time_counter.stop()
+    
+    def disable_gui(self, disabled: bool):
+        self.close_session_button.setDisabled(disabled)
+    
+    def show_dialog_error_message(self, message: str):
+        QMessageBox.critical(self.window(), 'Error', message)
