@@ -3,6 +3,7 @@ from view.opened_session import OpenedSessionView
 from nautapy.nauta_api import NautaClient
 from model.util.thread_worker import PresenterThreadWorker
 from nautapy.exceptions import NautaLogoutException
+from view.utils import show_action_confirmation_dialog
 
 
 class OpenedSessionPresenter(AbstractPresenter):
@@ -51,5 +52,11 @@ class OpenedSessionPresenter(AbstractPresenter):
 
     def __handle_logout_exceptions(self, exception: Exception):
         if isinstance(exception, NautaLogoutException):
-            self.get_view().show_dialog_error_message(
-                'No se pudo cerrar la sesión. Tal vez ya está cerrada, o no se encuentra conectado a la red.')
+            go_to_main_view = show_action_confirmation_dialog(
+                view=self.get_view(),
+                title='No se pudo cerrar la sesión',
+                message='Quizás ya esté cerrada o no se ecuentra conectado a la red. ¿Desea regresar a la vista principal?'
+            )
+            if go_to_main_view:
+                self.get_view().stop_time_counter()
+                self._close_this_presenter()
