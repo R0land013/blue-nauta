@@ -75,7 +75,7 @@ QPushButton:hover{
       <item>
        <widget class="QFrame" name="frame_2">
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
@@ -107,7 +107,7 @@ QPushButton:hover{
       <item>
        <widget class="QFrame" name="frame_3">
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
@@ -136,11 +136,21 @@ QPushButton:hover{
         </layout>
        </widget>
       </item>
+      <item>
+       <widget class="QLabel" name="closing_session_label">
+        <property name="text">
+         <string>Cerrando sesión...</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
    <item>
     <widget class="QPushButton" name="close_session_button">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
      <property name="text">
       <string>Cerrar Sesión</string>
      </property>

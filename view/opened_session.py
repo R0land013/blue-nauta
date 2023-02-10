@@ -41,3 +41,9 @@ class OpenedSessionView(QFrame):
     
     def show_dialog_error_message(self, message: str):
         QMessageBox.critical(self.window(), 'Error', message)
+    
+    def show_closing_session_message(self, show: bool):
+        if show:
+            self.closing_session_label.show()
+        else:    
+            self.closing_session_label.hide()

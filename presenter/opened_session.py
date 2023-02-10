@@ -19,8 +19,10 @@ class OpenedSessionPresenter(AbstractPresenter):
         self._set_view(OpenedSessionView(self))
 
     def on_view_shown(self):
+        self.get_view().show_closing_session_message(False)
         self.get_view().set_available_time(self.__nauta_client.remaining_time)
         self.get_view().start_time_counter()
+
 
     def get_default_window_title(self) -> str:
         return 'Sesión iniciada'
@@ -31,6 +33,9 @@ class OpenedSessionPresenter(AbstractPresenter):
 
         self.thread.when_started.connect(
             lambda: self.get_view().disable_gui(True))
+        self.thread.when_started.connect(
+            lambda: self.get_view().show_closing_session_message(True)
+        )
 
         self.thread.error_found.connect(self.__handle_logout_exceptions)
         self.thread.error_found.connect(
@@ -40,6 +45,10 @@ class OpenedSessionPresenter(AbstractPresenter):
             lambda: self.get_view().stop_time_counter())
         self.thread.finished_without_error.connect(
             lambda: self._close_this_presenter())
+
+        self.thread.when_finished.connect(
+            lambda: self.get_view().show_closing_session_message(False)
+        )
 
         self.thread.start()
 
