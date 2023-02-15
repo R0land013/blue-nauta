@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>553</width>
-    <height>193</height>
+    <width>593</width>
+    <height>238</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <property name="styleSheet">
    <string notr="true">QComboBox
 {
-	color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
 	font: 12pt &quot;Calibri&quot;;
     background-color: rgb(161, 161, 161);
     border-radius:12px;
@@ -110,12 +110,15 @@ QCheckBox::indicator:checked, QRadioButton::indicator:checked {
       </sizepolicy>
      </property>
      <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
+      <enum>QFrame::NoFrame</enum>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="rightMargin">
+       <number>100</number>
+      </property>
       <item>
        <widget class="QFrame" name="frame_2">
         <property name="sizePolicy">
@@ -125,7 +128,7 @@ QCheckBox::indicator:checked, QRadioButton::indicator:checked {
          </sizepolicy>
         </property>
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
@@ -170,6 +173,13 @@ QCheckBox::indicator:checked, QRadioButton::indicator:checked {
            </property>
           </widget>
          </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="text">
+            <string>Eliminar</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </widget>
       </item>
@@ -188,7 +198,7 @@ QCheckBox::indicator:checked, QRadioButton::indicator:checked {
       </sizepolicy>
      </property>
      <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
+      <enum>QFrame::NoFrame</enum>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
@@ -208,6 +218,9 @@ QCheckBox::indicator:checked, QRadioButton::indicator:checked {
        <widget class="QComboBox" name="default_account_combo_box">
         <property name="enabled">
          <bool>false</bool>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <item>
          <property name="text">
@@ -244,7 +257,7 @@ QCheckBox::indicator:checked, QRadioButton::indicator:checked {
      </property>
      <property name="styleSheet">
       <string notr="true">QWidget #frame_4{
-	background-color: rgb(68, 68, 68);/*rgb(77, 77, 127);*/
+	background-color: rgb(48, 119,  212);/*rgb(77, 77, 127);*/
 }
 
 QToolButton{
@@ -302,21 +315,30 @@ color: rgb(255, 255, 255);</string>
       </item>
       <item row="0" column="2">
        <widget class="QToolButton" name="new_account_button">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="toolTip">
          <string>Nueva cuenta</string>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: white</string>
+        </property>
         <property name="text">
-         <string>Guardar</string>
+         <string>Nueva</string>
         </property>
         <property name="icon">
-         <iconset resource="resources.qrc">
-          <normaloff>:/icons/assets/add.png</normaloff>:/icons/assets/add.png</iconset>
+         <iconset>
+          <normaloff>assets/add.png</normaloff>assets/add.png</iconset>
         </property>
         <property name="iconSize">
          <size>
           <width>24</width>
           <height>24</height>
          </size>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextUnderIcon</enum>
         </property>
         <property name="autoRaise">
          <bool>true</bool>
@@ -325,21 +347,30 @@ color: rgb(255, 255, 255);</string>
       </item>
       <item row="0" column="3">
        <widget class="QToolButton" name="go_back_button">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="toolTip">
          <string>Regresar</string>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: white</string>
+        </property>
         <property name="text">
-         <string>Cancelar</string>
+         <string>Regresar</string>
         </property>
         <property name="icon">
-         <iconset resource="resources.qrc">
-          <normaloff>:/icons/assets/back.png</normaloff>:/icons/assets/back.png</iconset>
+         <iconset>
+          <normaloff>assets/back.png</normaloff>assets/back.png</iconset>
         </property>
         <property name="iconSize">
          <size>
           <width>28</width>
           <height>28</height>
          </size>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextUnderIcon</enum>
         </property>
         <property name="autoRaise">
          <bool>true</bool>

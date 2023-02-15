@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QFrame, QHBoxLayout, QLabel, QPushButton, QVBoxLayout, QWidget
+from PyQt5.QtWidgets import QFrame, QHBoxLayout, QLabel, QPushButton, QVBoxLayout, QWidget, QSizePolicy
 from PyQt5.QtCore import Qt
 from PyQt5.uic import loadUi
 from typing import Callable
@@ -54,7 +54,7 @@ class AccountListView(QFrame):
         for an_account in accounts:
             self.default_account_combo_box.addItem(
                 an_account[0], an_account[1])
-        
+
         if len(accounts) > 0:
             self.use_default_account_check_box.setEnabled(True)
         else:
@@ -74,12 +74,21 @@ class AccountListView(QFrame):
 
         layout = QHBoxLayout(account_frame)
         layout.addWidget(QLabel(username))
+
         edit_button = QPushButton('Editar')
+        edit_button.setCursor(Qt.PointingHandCursor)
+        edit_button.setSizePolicy(QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum))
         edit_button.clicked.connect(on_edit_pressed)
         layout.addWidget(edit_button)
+        layout.addSpacing(20)
+
         delete_button = QPushButton('Eliminar')
+        delete_button.setCursor(Qt.PointingHandCursor)
+        delete_button.setSizePolicy(QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum))
         delete_button.clicked.connect(on_delete_pressed)
         layout.addWidget(delete_button)
+        
+        layout.addSpacing(100)
         account_frame.setLayout(layout)
 
         list_frame_layout = self.account_list_frame.layout()
@@ -94,4 +103,3 @@ class AccountListView(QFrame):
             if an_account_id == account_id:
                 self.use_default_account_check_box.setCheckState(Qt.Checked)
                 self.default_account_combo_box.setCurrentIndex(account_index)
-

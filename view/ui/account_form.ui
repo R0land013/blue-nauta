@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>411</width>
-    <height>164</height>
+    <height>182</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,7 +33,7 @@
      </property>
      <property name="styleSheet">
       <string notr="true">QWidget #frame_2{
-	background-color: rgb(68, 68, 68);/*rgb(77, 77, 127);*/
+	background-color: rgb(48, 119, 212);/*rgb(77, 77, 127);*/
 }
 
 QToolButton{
@@ -79,21 +79,30 @@ color: rgb(255, 255, 255);</string>
       </item>
       <item row="0" column="2">
        <widget class="QToolButton" name="save_button">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="toolTip">
          <string>Guardar</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white</string>
         </property>
         <property name="text">
          <string>Guardar</string>
         </property>
         <property name="icon">
-         <iconset resource="resources.qrc">
-          <normaloff>:/icons/assets/save.png</normaloff>:/icons/assets/save.png</iconset>
+         <iconset>
+          <normaloff>assets/save.png</normaloff>assets/save.png</iconset>
         </property>
         <property name="iconSize">
          <size>
           <width>24</width>
           <height>24</height>
          </size>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextUnderIcon</enum>
         </property>
         <property name="autoRaise">
          <bool>true</bool>
@@ -102,21 +111,30 @@ color: rgb(255, 255, 255);</string>
       </item>
       <item row="0" column="3">
        <widget class="QToolButton" name="cancel_button">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="toolTip">
          <string>Regresar</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white</string>
         </property>
         <property name="text">
          <string>Cancelar</string>
         </property>
         <property name="icon">
-         <iconset resource="resources.qrc">
-          <normaloff>:/icons/assets/back.png</normaloff>:/icons/assets/back.png</iconset>
+         <iconset>
+          <normaloff>assets/back.png</normaloff>assets/back.png</iconset>
         </property>
         <property name="iconSize">
          <size>
           <width>24</width>
           <height>24</height>
          </size>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextUnderIcon</enum>
         </property>
         <property name="autoRaise">
          <bool>true</bool>
@@ -144,7 +162,7 @@ QLabel{
 }</string>
      </property>
      <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
+      <enum>QFrame::NoFrame</enum>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
