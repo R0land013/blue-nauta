@@ -1,0 +1,11 @@
+name: Build AppImage
+run-name: Building AppImage
+
+jobs:
+  Build AppImage:
+    runs-on: ubuntu-20.04
+    steps:
+
+      - run: sudo pip3 install appimage-builder
+      - run: sudo appimage-builder
+      - run: ./BlueNauta-0.1.0-x86_64.AppImage
