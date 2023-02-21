@@ -1,4 +1,4 @@
-name: Build AppImage
+name: Build-AppImage
 run-name: Building AppImage
 on: workflow_dispatch
 jobs:
