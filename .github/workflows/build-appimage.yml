@@ -1,6 +1,6 @@
 name: Build AppImage
 run-name: Building AppImage
-
+on: workflow_dispatch
 jobs:
   Build AppImage:
     runs-on: ubuntu-20.04
