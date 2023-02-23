@@ -5,9 +5,8 @@ jobs:
   Build-AppImage:
     runs-on: ubuntu-20.04
     steps:
-
+        uses: actions/checkout@v3
       - run: sudo pip3 install appimage-builder
-      - run: cd ..
       - run: ls
       - run: pwd
       - run: sudo appimage-builder
