@@ -16,6 +16,7 @@ script:
   - cp ./view/ui/assets/bluenauta.png AppDir/usr/share/icons/hicolor/256x256/apps/
 
   # Install application dependencies
+  - python3 -m pip3 install --upgrade pip
   - python3 -m pip3 install --ignore-installed --prefix=/usr --root=AppDir -r ./requirements.txt
 
 
