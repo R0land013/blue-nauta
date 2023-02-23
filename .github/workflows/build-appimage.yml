@@ -7,6 +7,8 @@ jobs:
     steps:
 
       - run: sudo pip3 install appimage-builder
+      - run: cd ..
       - run: ls
+      - run: pwd
       - run: sudo appimage-builder
       - run: ./BlueNauta-0.1.0-x86_64.AppImage
