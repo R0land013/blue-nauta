@@ -5,9 +5,11 @@ jobs:
   Build-AppImage:
     runs-on: ubuntu-20.04
     steps:
-        uses: actions/checkout@v3
+        name: Installing appimage-builder
       - run: sudo pip3 install appimage-builder
       - run: ls
       - run: pwd
+        name: Executing appimage-builder...
+        uses: actions/checkout@v3
       - run: sudo appimage-builder
       - run: ./BlueNauta-0.1.0-x86_64.AppImage
