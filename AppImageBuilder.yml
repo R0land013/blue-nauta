@@ -23,7 +23,7 @@ script:
   - sudo apt-get update
   - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
 
-  -ls ${APPDIR}/usr/local/lib/python3.8/dist-packages
+  - ls ${APPDIR}/usr/local/lib/python3.8/dist-packages
 
 
 AppDir:
