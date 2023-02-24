@@ -3,7 +3,7 @@ run-name: Building AppImage
 on: workflow_dispatch
 jobs:
   Build-AppImage:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       
       - run: sudo pip3 install appimage-builder
