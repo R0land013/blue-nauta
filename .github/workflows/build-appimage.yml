@@ -10,5 +10,6 @@ jobs:
       - run: ls
       - run: pwd
       - uses: actions/checkout@v3
+      - sudo apt-get install tree
       - run: appimage-builder
       - run: ./BlueNauta-0.1.0-x86_64.AppImage
