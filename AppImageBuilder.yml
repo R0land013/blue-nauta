@@ -23,6 +23,7 @@ script:
   - sudo apt-get update
   - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
 
+  - sudo apt-get install tree
   - tree .
 
 
