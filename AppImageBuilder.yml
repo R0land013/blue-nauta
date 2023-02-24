@@ -56,7 +56,7 @@ AppDir:
     env:
       # Set python home
       # See https://docs.python.org/3/using/cmdline.html#envvar-PYTHONHOME
-      PYTHONHOME: '${APPDIR}/usr/lib/python3.8'
+      PYTHONHOME: '${APPDIR}/usr'
       # Path to the site-packages dir or other modules dirs
       # See https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH
       PYTHONPATH: '${APPDIR}/usr/local/lib/python3.8/dist-packages'
