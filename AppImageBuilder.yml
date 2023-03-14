@@ -21,8 +21,6 @@ script:
 
   # # Setting server key for deb packages
   - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
-  - sudo apt-key update
-  - sudo apt-get update
 
 
 AppDir:
