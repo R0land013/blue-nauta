@@ -52,6 +52,7 @@ AppDir:
       - python3-pyqt5
       - bash
       - perl
+      - libfuse2
     exclude: []
 
   runtime:
