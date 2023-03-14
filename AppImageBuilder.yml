@@ -23,7 +23,7 @@ script:
   - sudo cat /etc/apt/sources.list
   - sudo apt-key list
   - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
-  - sudo apt-get install ubuntu-keyring
+  - sudo apt-get install ubuntu-keyring fuse libfuse2
 
 
 AppDir:
@@ -52,6 +52,7 @@ AppDir:
       - python3-pyqt5
       - bash
       - perl
+      - fuse
       - libfuse2
     exclude: []
 
