@@ -3,6 +3,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.uic import loadUi
 from typing import Callable
 from typing import List, Tuple
+from util.resources_path import resource_path
 
 
 class AccountListView(QFrame):
@@ -14,7 +15,7 @@ class AccountListView(QFrame):
         self.__setup_gui()
 
     def __setup_gui(self):
-        loadUi('./view/ui/account_list.ui', self)
+        loadUi(resource_path('view/ui/account_list.ui'), self)
         self.__setup_gui_connections()
 
     def __setup_gui_connections(self):

@@ -1,6 +1,7 @@
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QFrame, QMessageBox, QLineEdit
 from PyQt5.uic import loadUi
+from util.resources_path import resource_path
 
 
 class MainView(QFrame):
@@ -12,12 +13,12 @@ class MainView(QFrame):
         self.__setup_gui()
 
     def __setup_gui(self):
-        loadUi('./view/ui/main.ui', self)
+        loadUi(resource_path('view/ui/main.ui'), self)
         # set windows icon (it doesn't work)
-        self.setWindowIcon(QIcon(":/logo/assets/bluenauta.png"))
+        self.setWindowIcon(QIcon(resource_path('view/ui/assets/bluenauta.png')))
         # toggle password visibility button on line edit
-        self.visibleIcon = QIcon("./view/ui/assets/show.png")
-        self.hiddenIcon = QIcon("./view/ui/assets/hide.png")
+        self.visibleIcon = QIcon(resource_path('view/ui/assets/show.png'))
+        self.hiddenIcon = QIcon(resource_path('view/ui/assets/hide.png'))
         self.togglepasswordAction = self.password_line_edit.addAction(self.visibleIcon,
                                                                       QLineEdit.ActionPosition.TrailingPosition)
         self.togglepasswordAction.triggered.connect(

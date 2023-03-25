@@ -3,6 +3,7 @@ from PyQt5.uic import loadUi
 from PyQt5.QtCore import QTimer
 from datetime import timedelta
 from PyQt5.QtWidgets import QMessageBox
+from util.resources_path import resource_path
 
 
 class OpenedSessionView(QFrame):
@@ -17,7 +18,7 @@ class OpenedSessionView(QFrame):
         self.__setup_gui()
     
     def __setup_gui(self):
-        loadUi('./view/ui/opened_session.ui', self)
+        loadUi(resource_path('view/ui/opened_session.ui'), self)
         self.__setup_gui_connections()
     
     def __setup_gui_connections(self):
