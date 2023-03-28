@@ -7,6 +7,7 @@ from presenter.account_list import AccountListPresenter
 from model.credentials.manager import CredentialManager
 from model.entity.entity import UserCredential
 from model.util.thread_worker import PresenterThreadWorker
+from presenter.help import HelpPresenter
 
 
 class MainPresenter(AbstractPresenter):
@@ -92,3 +93,7 @@ class MainPresenter(AbstractPresenter):
 
         if result == AccountListPresenter.USER_CHANGED_DEFAULT_ACCOUNT:
             self.load_default_account()
+    
+    def open_help_presenter(self):
+        intent = Intent(HelpPresenter)
+        self._open_other_presenter(intent)

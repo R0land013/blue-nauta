@@ -39,6 +39,7 @@ class MainView(QFrame):
             self.__presenter.try_to_open_session)
         self.show_accounts_button.clicked.connect(
             self.__presenter.open_account_list_presenter)
+        self.help_button.clicked.connect(self.__presenter.open_help_presenter)
 
     def get_username(self) -> str:
         return self.user_line_edit.text().strip()
