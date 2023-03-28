@@ -1,6 +1,9 @@
 name: Build-AppImage
 run-name: Building AppImage
-on: workflow_dispatch
+on:
+  push:
+    tags:
+      - v**
 jobs:
   Build-AppImage:
     runs-on: ubuntu-22.04
@@ -14,5 +17,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           file: "*.AppImage"
-          tags: false
-          draft: true
+          tags: true
+          draft: false
