@@ -1,0 +1,21 @@
+name: Build-Windows-Executable
+run-name: Building Windows Executable
+on:
+  push:
+    tags:
+      - v**
+jobs:
+  Build-Executable:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v3
+      - run: pip install pyinstaller
+      - run: pyinstaller -F --add-data ".\view\ui\*.ui;.\view\ui" --add-data ".\view\ui\assets\*.png;.\view\ui\assets" --windowed --icon=favicon.ico --name "Blue Nauta v0.1.0" main.py
+
+      - uses: xresloader/upload-to-github-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          file: ".\\dist\\*.exe"
+          tags: true
+          draft: false
