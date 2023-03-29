@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: pip install pyinstaller
+      - run: pip install -r requirements.txt
       - run: pyinstaller -F --add-data ".\view\ui\*.ui;.\view\ui" --add-data ".\view\ui\assets\*.png;.\view\ui\assets" --windowed --icon=favicon.ico --name "Blue Nauta v0.1.0" main.py
 
       - uses: xresloader/upload-to-github-release@v1
