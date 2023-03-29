@@ -1,6 +1,7 @@
 
 # Blue Nauta
 
+
 Blue Nauta is a client app to make easy the process of logging in and logging out from the Nauta Captive Portal.
 
 It aims to be multi platform. I created this tool because I change from Windows to Linux, and now I do not have a tool for logging in.
