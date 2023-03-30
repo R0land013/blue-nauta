@@ -55,6 +55,7 @@ class MainView(QFrame):
 
     def disable_all_gui(self, disabled: bool):
         self.main_container.setDisabled(disabled)
+        self.superior_bar.setDisabled(disabled)
 
     def set_status_text(self, status: str):
         self.status_label.setText(status)
