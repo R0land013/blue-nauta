@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>411</width>
-    <height>182</height>
+    <height>210</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -83,7 +83,7 @@ color: rgb(255, 255, 255);</string>
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="toolTip">
-         <string>Guardar</string>
+         <string/>
         </property>
         <property name="styleSheet">
          <string notr="true">color: white</string>
@@ -97,8 +97,8 @@ color: rgb(255, 255, 255);</string>
         </property>
         <property name="iconSize">
          <size>
-          <width>24</width>
-          <height>24</height>
+          <width>32</width>
+          <height>32</height>
          </size>
         </property>
         <property name="toolButtonStyle">
@@ -115,7 +115,7 @@ color: rgb(255, 255, 255);</string>
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="toolTip">
-         <string>Regresar</string>
+         <string/>
         </property>
         <property name="styleSheet">
          <string notr="true">color: white</string>
@@ -129,8 +129,8 @@ color: rgb(255, 255, 255);</string>
         </property>
         <property name="iconSize">
          <size>
-          <width>24</width>
-          <height>24</height>
+          <width>32</width>
+          <height>32</height>
          </size>
         </property>
         <property name="toolButtonStyle">

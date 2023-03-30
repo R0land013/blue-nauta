@@ -319,7 +319,7 @@ color: rgb(255, 255, 255);</string>
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="toolTip">
-         <string>Nueva cuenta</string>
+         <string/>
         </property>
         <property name="styleSheet">
          <string notr="true">color: white</string>
@@ -351,7 +351,7 @@ color: rgb(255, 255, 255);</string>
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="toolTip">
-         <string>Regresar</string>
+         <string/>
         </property>
         <property name="styleSheet">
          <string notr="true">color: white</string>
