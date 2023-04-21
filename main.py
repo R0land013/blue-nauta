@@ -5,7 +5,7 @@ from util.resources_path import resource_path
 
 app = ApplicationManager(
     app_name='Blue Nauta',
-    window_icon_path=resource_path('favicon.ico'),
+    window_icon_path=resource_path('view/ui/assets/bluenauta.png'),
 )
 initial_intent = Intent(MainPresenter)
 app.execute_app(initial_intent)
