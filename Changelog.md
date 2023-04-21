@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.1 (21-April-2023)
+
+- Added app name and window icon while running
+
 ## v0.1.0 (30-March-2023)
 
 - User can initialize session

@@ -28,7 +28,7 @@ AppDir:
     id: github.com.R0land013.blue-nauta
     name: Blue Nauta
     icon: bluenauta
-    version: 0.1.0
+    version: 0.1.1
     # Set the python executable as entry point
     exec: main
 
